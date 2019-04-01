@@ -1,15 +1,15 @@
-import urllib.request as request
+import urllib.request
 import json
 #User input
-search_product = input("Search for your makeup brand: ")
+
+search_brand = input("Enter value: ")
 #Request the data needed to be read
-with request.urlopen('http://makeup-api.herokuapp.com/api/v1/products.json') as response:
-  source = response.read()
-data = json.loads(source)
-#Search for the brand of makeup
-if search_product in data  == True:
- products = data['brand']    
- d = {v[search_product]: h for h, v in products.items()}
+with urllib.request.urlopen("http://makeup-api.herokuapp.com/api/v1/products.json") as url:
+    data = json.loads(url.read().decode())
+
+
+
+for brands in data:
+
+ d = [k for k,v in brands.items() if v == search_brand]
  print(d)
-else:
-  print("Product not found")

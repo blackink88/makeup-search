@@ -1,11 +1,13 @@
 import urllib.request
 import json
 #User input
-search_brand = input("Enter the brand: ")
+search_input = 'fenty'
 #Request the data needed to be read
 with urllib.request.urlopen("http://makeup-api.herokuapp.com/api/v1/products.json") as url:
     data = json.loads(url.read().decode())
 #Return the brand that was searched
-for brands in data:
- d = [k for k,v in brands.items() if v == search_brand]
- print(d)
+for values in data:
+ if values['brand'] == search_input:
+  print(values['brand'])
+
+

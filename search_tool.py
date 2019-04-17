@@ -12,4 +12,3 @@ for values in data:
   print(values['name'])
 
 
-

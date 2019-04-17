@@ -8,7 +8,8 @@ with urllib.request.urlopen("http://makeup-api.herokuapp.com/api/v1/products.jso
 #Return the brand that was searched
 for values in data:
  if values['brand'] == search_input:
-  print(values['brand'])
   print(values['name'])
+else:
+ print("Product not found")
 
 
